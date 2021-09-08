@@ -1,0 +1,14 @@
+#footer {
+  display: flex;
+  justify-content: space-between;
+  height: 5vh;
+  position: fixed;
+  bottom: 0;
+  background-color: #2196f3;
+  width: 100%;
+  #footer-content {
+    margin-top: 0.5rem;
+    color: white;
+    font-family: sans-serif;
+  }
+}

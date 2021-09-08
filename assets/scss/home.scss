@@ -1,0 +1,56 @@
+#home-container {
+  display: flex;
+  #feed-posts {
+    width: 75%;
+    padding: 10px;
+    #new-post-form {
+      display: flex;
+      flex-direction: column;
+      padding-left: 5%;
+      textarea {
+        outline: none;
+        height: 4rem;
+        width: 52rem;
+        font-size: 1rem;
+        border: 0.5px dashed black;
+      }
+      input[type="submit"] {
+        background-color: #4834c9;
+
+        width: 52rem;
+        padding: 0.45rem;
+        color: white;
+        font-size: 1rem;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        border-radius: 3%;
+      }
+    }
+  }
+  #user-friends {
+    width: 30%;
+    border-left: 1px solid lightgray;
+    padding: 10px;
+    // height: 100%;
+    #main-heading {
+      font-family: sans-serif;
+    }
+    a {
+      text-decoration: none;
+      margin-top: 1rem;
+      padding: 0.3rem;
+      display: flex;
+      flex-direction: row;
+      img::before {
+        border-radius: 50%;
+      }
+      #friend-name {
+        color: black;
+      }
+    }
+    a:hover {
+      background-color: #f2f3f5;
+    }
+  }
+}
