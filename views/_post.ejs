@@ -12,9 +12,9 @@
     <p class="post-content">
       <%= post.content %> <% if( locals.user && locals.user.id == post.user.id){
       %>
-      <a class="delete-post-button" href="/posts/destroy/<%= post._id %>"
+      <!-- <a class="delete-post-button" href="/posts/destroy/<%= post._id %>"
         >Delete</a
-      >
+      > -->
 
       <% } %>
     </p>
@@ -29,6 +29,9 @@
         <%= post.likes.length %> likes</a
       >
       <% }else{ %> <%= post.likes.length %> likes <% } %>
+      <a class="delete-post-button" href="/posts/destroy/<%= post._id %>"
+        >Delete</a
+      >
     </small>
   </section>
 

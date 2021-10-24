@@ -1,28 +1,34 @@
-<link rel="stylesheet" href="/css/user_sign_up.css">
-<div id=left_part>
-      <div id="part_1">
-            <h2>Codeial</h2>
-      </div>
-      
-</div>
+<link rel="stylesheet" href="/css/user_sign_up.css" />
+
 <div id="sign-up-page">
-    <form action="/users/create" method="POST">
-          <h2>Sign up</h2>
-          <!-- google sign up -->
-          <p id="google-sign-up">
-                <a href="/users/auth/google"><img src="\assets\css\images\google.jpg" height="30" width="30"><span>Sign Up with Google</span></a>
-          </p>
-    
-       <!-- form content -->
-       <input name="name" type="text" placeholder="Your Name" required>
-       <input name="email" type="email" placeholder="Your Email-id" required>
-       <input name="password" type="password" placeholder="Password" required>
-       <input name="confirm_password" type="password" placeholder="Confirm Password" required>
-       <input type="submit" value="Sign Up">
-    
-          <p id="already-account">
-          <span>Already have an account?</span> 
-          <a href="/users/sign-in">Sign In</a>
-          <p>
-    </form>
-    </div>
+  <form action="/users/create" method="POST">
+    <h2>Sign up</h2>
+    <!-- google sign up -->
+    <p id="google-sign-up">
+      <a href="/users/auth/google"
+        ><img src="/images/google.png" height="30" width="35" /><span
+          >Sign Up with Google</span
+        ></a
+      >
+    </p>
+
+    <!-- form content -->
+    <input name="name" type="text" placeholder="Your Name" required />
+    <input name="email" type="email" placeholder="Your Email-id" required />
+    <input name="password" type="password" placeholder="Password" required />
+    <input
+      name="confirm_password"
+      type="password"
+      placeholder="Confirm Password"
+      required
+    />
+    <input type="submit" value="Sign Up" />
+
+    <p id="already-account">
+      <span>Already have an account?</span>
+      <a href="/users/sign-in">Sign In</a>
+    </p>
+
+    <p></p>
+  </form>
+</div>

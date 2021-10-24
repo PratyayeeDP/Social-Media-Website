@@ -1,15 +1,16 @@
 body {
-  background-image: url("/assets/images/social-media-2.jpg");
-  background-size: cover; }
+  background-color: #0b0c10;
+  background: linear-gradient(to right, #0b0c10, #66fcf1); }
 
 body #sign-up-page form {
-  background-color: #8282f3;
+  background-color: #2b7a78;
+  box-shadow: 1px 2px 7px 6px #0b0c10;
   height: 26rem;
   width: 18rem;
   border-radius: 3%;
   padding-top: 0.1%;
-  margin-top: 1%;
-  margin-left: 74%; }
+  margin-top: 3%;
+  margin-left: 40%; }
 
 body #sign-up-page form h2 {
   text-align: center;
@@ -35,7 +36,7 @@ body #sign-up-page form #google-sign-up a {
 
 body #sign-up-page form #google-sign-up a span {
   position: relative;
-  top: -0.4rem; }
+  top: -0.6rem; }
 
 body #sign-up-page form input {
   display: inline-block;
@@ -49,7 +50,7 @@ body #sign-up-page form input {
   border-radius: 3%; }
 
 body #sign-up-page form input[type="submit"] {
-  background-color: #4834c9;
+  background-color: #1f2833;
   color: white;
   font-size: 1rem;
   outline: none;
@@ -70,4 +71,4 @@ body #sign-up-page form #already-account span {
 
 body #sign-up-page form #already-account a {
   text-decoration: none;
-  color: #3449eb; }
+  color: #66fcf1; }

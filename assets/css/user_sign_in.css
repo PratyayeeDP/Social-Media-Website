@@ -1,13 +1,15 @@
 body {
-  background-color: white; }
+  background-color: #0b0c10;
+  background: linear-gradient(to right, #0b0c10, #66fcf1); }
   body #sign-in-page form {
-    background-color: #8282f3;
+    background-color: #2b7a78;
+    box-shadow: 1px 2px 7px 6px #0b0c10;
     height: 20rem;
     width: 18rem;
     border-radius: 3%;
-    padding-top: 0.1%;
-    margin-top: 1%;
-    margin-left: 74%; }
+    padding-top: 0.2%;
+    margin-top: 5%;
+    margin-left: 40%; }
     body #sign-in-page form h2 {
       text-align: center;
       font-family: arial;
@@ -29,7 +31,7 @@ body {
         border-radius: 3%; }
         body #sign-in-page form #google-sign-in a span {
           position: relative;
-          top: -0.4rem; }
+          top: -0.6rem; }
     body #sign-in-page form input {
       display: inline-block;
       margin-top: 0.5rem;
@@ -41,7 +43,7 @@ body {
       margin-left: 1.5rem;
       border-radius: 3%; }
     body #sign-in-page form input[type="submit"] {
-      background-color: #4834c9;
+      background-color: #1f2833;
       color: white;
       font-size: 1rem;
       outline: none;
@@ -53,7 +55,7 @@ body {
     body #sign-in-page form #already-account {
       height: 2rem;
       width: 15rem;
-      margin-left: 1rem; }
+      margin-left: 2.5rem; }
       body #sign-in-page form #already-account a {
         text-decoration: none;
-        color: #3449eb; }
+        color: #66fcf1; }

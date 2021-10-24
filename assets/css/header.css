@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
-  background: #2196f3;
-  color: white;
-  box-shadow: 1px 1px 1px 1px lightgrey; }
+  background: #1f2833;
+  color: #66fcf1;
+  box-shadow: 1px 1px 1px 1px #66fcf1; }
   #layout-header nav .mini-logo p {
     margin: 5px;
     font-size: 1.4rem;
@@ -16,5 +16,5 @@
     #layout-header nav .auth-links ul li {
       margin-right: 10px; }
   #layout-header nav a {
-    color: white;
+    color: #66fcf1;
     text-decoration: none; }

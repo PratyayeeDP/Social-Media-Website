@@ -1,17 +1,18 @@
-<!-- CHANGE :: Creat the code for chat box -->
-<% if (locals.user){ %>
+<link rel="stylesheet" href="/css/chat_box.css" />
+<% if(locals.user){ %>
+<button class="btn open-button">Chat</button>
+
 <div id="user-chat-box">
+  <div id="feedback"></div>
   <ul id="chat-messages-list">
-    <li class="other-message">
-      <span>Other Message</span>
-    </li>
-    <li class="self-message">
-      <span> Self Message </span>
-    </li>
+    <li class="other-message"></li>
+    <li class="self-message"></li>
   </ul>
+
   <div id="chat-message-input-container">
-    <input id="chat-message-input" placeholder="Type message here" />
+    <input id="chat-message-input" placeholder="type your msg here..." />
     <button id="send-message">Send</button>
   </div>
+  <div class="btn btn-cancel"><i class="fas fa-window-close"></i></div>
 </div>
 <% } %>
