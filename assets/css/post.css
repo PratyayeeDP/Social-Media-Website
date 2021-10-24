@@ -8,7 +8,7 @@
     .post-container .full-post .post-user-info {
       font-family: arial;
       font-size: 1rem;
-      color: #4834c9;
+      color: #66fcf1;
       font-weight: bold;
       justify-content: space-between; }
     .post-container .full-post .post-content {
@@ -32,8 +32,8 @@
       padding: 0.4rem;
       outline: none; }
     .post-container .post-comments form input[type="submit"] {
-      background-color: #4834c9;
-      color: white;
+      background-color: #277a74;
+      color: #66fcf1;
       font-size: 0.8rem;
       outline: none;
       cursor: pointer;

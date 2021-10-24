@@ -12,10 +12,12 @@
         <% if (locals.user){ %>
         <li>
           <a href="/users/profile/<%= user.id %>"
-            ><img src="<%= user.avatar %>" width="20" height="20" /><%=
-            user.name %></a
-          >
+            ><img src="<%= user.avatar %>" width="20" height="20"
+          /></a>
           <!-- <a href="/users/profile"><%= user.name %></a> -->
+        </li>
+        <li>
+          <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
         </li>
         <li>
           <a href="/users/sign-out">Sign Out</a>

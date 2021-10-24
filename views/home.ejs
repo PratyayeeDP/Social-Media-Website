@@ -2,6 +2,17 @@
 <link rel="stylesheet" href="/css/chat_box.css" />
 
 <div id="home-container">
+  <section id="information">
+    <h3>Welcome To Codeial</h3>
+    <% if(locals.user){ %>
+    <ul>
+      <li>Home</li>
+      <li>Profile</li>
+      <li>Followers</li>
+      <li>Following</li>
+    </ul>
+    <% } %>
+  </section>
   <section id="feed-posts">
     <h4>Posts</h4>
     <% if(locals.user){ %>
@@ -29,9 +40,11 @@
     <% for(u of all_users){%>
     <p>
       <a href="/users/profile/<%= u.id %>"
-        ><img src="<%= u.avatar %>" width="30" height="30" /><%= u.name %></a
-      >
+        ><img src="<%= u.avatar %>" width="30" height="30"
+      /></a>
+      <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
     </p>
+
     <% } %>
   </section>
 
