@@ -156,7 +156,7 @@ module.exports.updatePassword = function (req, res) {
     function (err, uniqueid) {
       if (uniqueid.isValid == true) {
         if (req.body.password != req.body.confirm_password) {
-          req.flash("error", "Passwords don't match!");
+          req.flash("Passwords don't match!");
           return res.redirect("back");
         }
         User.findByIdAndUpdate(
@@ -164,10 +164,10 @@ module.exports.updatePassword = function (req, res) {
           { password: req.body.password },
           function (err, user) {
             if (err) {
-              console.log("Error while resetting the password");
+              console.log("Error");
               return;
             }
-            req.flash("sucess", "Password updated successfully!");
+            req.flash("Password updated successfully!");
             return res.redirect("/users/sign-in");
           }
         );
