@@ -8,7 +8,7 @@ body {
       //   background-color: rgb(130, 130, 243);
       background-color: #2b7a78;
       box-shadow: 1px 2px 7px 6px #0b0c10;
-      height: 20rem;
+      height: 23rem;
       width: 18rem;
       // margin-left: 24rem;
       // border-radius:3%;
@@ -78,6 +78,15 @@ body {
         // background-color: red;
         // box-shadow: 0px 0px 6px 4px rgba(230,196,196,0.7);
         // border-style:outset;
+        margin-left: 2.5rem;
+        a {
+          text-decoration: none;
+          color: #66fcf1;
+        }
+      }
+      #forgot-password {
+        height: 2rem;
+        width: 15rem;
         margin-left: 2.5rem;
         a {
           text-decoration: none;

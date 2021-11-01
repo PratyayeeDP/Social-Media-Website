@@ -22,7 +22,7 @@ router.post(
 router.get("/sign-up", usersController.signUp);
 router.get("/sign-in", usersController.signIn);
 router.post("/create", usersController.create);
-
+router.get("/forgot_password", usersController.forgot_password);
 //use passport as a middleware to authenticate:
 router.post(
   "/create-session",
@@ -42,4 +42,7 @@ router.get(
   usersController.createSession
 );
 
+router.post("/create_unique_key", usersController.createUniqueKey);
+router.get("/reset-password/:uniquekey", usersController.resetPasswordPage);
+router.post("/update-password/:uniquekey", usersController.updatePassword);
 module.exports = router;

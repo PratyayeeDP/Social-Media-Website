@@ -1,6 +1,9 @@
+const { v4: uuidv4 } = require("uuid");
 const User = require("../models/user");
 const fs = require("fs");
 const path = require("path");
+const uniquekey = require("../models/reset_password");
+const resetPasswordMailer = require("../mailers/forgot_password");
 
 module.exports.profile = function (req, res) {
   //return res.end('<h1>User Profile</h1>');
@@ -12,14 +15,6 @@ module.exports.profile = function (req, res) {
   });
 };
 module.exports.update = async function (req, res) {
-  // if(req.user.id==req.params.id){
-  //     User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
-  //         return res.redirect('back');
-  //     });
-  // }else{
-  //     req.flash('error','Unauthorized!');
-  //     return res.status(401).send('Unauthorized');
-  // }
   if (req.user.id == req.params.id) {
     try {
       let user = await User.findById(req.params.id);
@@ -103,4 +98,80 @@ module.exports.destroySession = function (req, res) {
   //flash message of logging-out:
   req.flash("success", "You have logged out!");
   return res.redirect("/");
+};
+
+module.exports.forgot_password = function (req, res) {
+  return res.render("user_forgot_password", {
+    title: "Codeial | Forgot Password",
+  });
+};
+
+module.exports.createUniqueKey = async function (req, res) {
+  // console.log("createuniquekey");
+  // console.log(req.body.email);
+  // return res.redirect("back");
+
+  try {
+    let user = await User.findOne({ email: req.body.email });
+    console.log(user);
+    if (user) {
+      let uid = uuidv4();
+      let newtoken = await uniquekey.create({
+        user: user,
+        uniqueKey: uid,
+        isValid: true,
+      });
+      console.log(user.email);
+      resetPasswordMailer.newpasswordlink(newtoken);
+
+      return res.redirect("back");
+    } else {
+      req.flash("error", "Unauthorized!");
+      return res.render("user_sign_up", {
+        title: "Codeial | Sign Up",
+      });
+    }
+  } catch (err) {
+    console.log("Error");
+  }
+};
+
+module.exports.resetPasswordPage = async function (req, res) {
+  //console.log(req.params.uniquekey);
+  let uniqueid = await uniquekey.findOne({
+    uniqueKey: req.params.uniquekey,
+  });
+  // let user = await User.findById(uniqueid.user);
+  // console.log(user);
+  return res.render("reset_password_page", {
+    title: "Codeial | Reset Password",
+    uniquekey: uniqueid,
+  });
+};
+
+module.exports.updatePassword = function (req, res) {
+  uniquekey.findOneAndUpdate(
+    { uniqueKey: req.params.uniquekey },
+    { isValid: false },
+    function (err, uniqueid) {
+      if (uniqueid.isValid == true) {
+        if (req.body.password != req.body.confirm_password) {
+          req.flash("error", "Passwords don't match!");
+          return res.redirect("back");
+        }
+        User.findByIdAndUpdate(
+          uniqueid.user,
+          { password: req.body.password },
+          function (err, user) {
+            if (err) {
+              console.log("Error while resetting the password");
+              return;
+            }
+            req.flash("sucess", "Password updated successfully!");
+            return res.redirect("/users/sign-in");
+          }
+        );
+      }
+    }
+  );
 };

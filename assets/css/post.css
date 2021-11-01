@@ -13,6 +13,7 @@
       justify-content: space-between; }
     .post-container .full-post .post-content {
       font-family: arial;
+      color: white;
       display: flex;
       justify-content: space-between;
       font-size: 0.8rem; }

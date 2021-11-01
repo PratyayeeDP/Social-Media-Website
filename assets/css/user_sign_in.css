@@ -4,7 +4,7 @@ body {
   body #sign-in-page form {
     background-color: #2b7a78;
     box-shadow: 1px 2px 7px 6px #0b0c10;
-    height: 20rem;
+    height: 23rem;
     width: 18rem;
     border-radius: 3%;
     padding-top: 0.2%;
@@ -57,5 +57,12 @@ body {
       width: 15rem;
       margin-left: 2.5rem; }
       body #sign-in-page form #already-account a {
+        text-decoration: none;
+        color: #66fcf1; }
+    body #sign-in-page form #forgot-password {
+      height: 2rem;
+      width: 15rem;
+      margin-left: 2.5rem; }
+      body #sign-in-page form #forgot-password a {
         text-decoration: none;
         color: #66fcf1; }
