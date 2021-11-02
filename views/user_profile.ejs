@@ -56,5 +56,13 @@
   />
   <h1>Name : <%= profile_user.name%></h1>
   <h1>Email : <%= profile_user.email%></h1>
-  <% } %>
+  <% if(isFollower) { %>
+  <div id="unfollow-button">
+    <a href="/users/unfollow/<%= profile_user.id %>">Unfollow</a>
+  </div>
+  <% } else { %>
+  <div id="follow-button">
+    <a href="/users/follow/<%= profile_user.id %>">Follow</a>
+  </div>
+  <% } %> <% } %>
 </div>

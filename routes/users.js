@@ -45,4 +45,6 @@ router.get(
 router.post("/create_unique_key", usersController.createUniqueKey);
 router.get("/reset-password/:uniquekey", usersController.resetPasswordPage);
 router.post("/update-password/:uniquekey", usersController.updatePassword);
+router.get("/unfollow/:id", usersController.unfollow);
+router.get("/follow/:id", usersController.follow);
 module.exports = router;

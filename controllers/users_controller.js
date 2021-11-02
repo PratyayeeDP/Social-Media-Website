@@ -5,15 +5,24 @@ const path = require("path");
 const uniquekey = require("../models/reset_password");
 const resetPasswordMailer = require("../mailers/forgot_password");
 
-module.exports.profile = function (req, res) {
+module.exports.profile = async function (req, res) {
   //return res.end('<h1>User Profile</h1>');
-  User.findById(req.params.id, function (err, user) {
+  try {
+    let user = await User.findById(req.params.id);
+    let currUser = await User.findById(req.user._id);
+    let isFollower = currUser.following.indexOf(user._id) == -1 ? false : true;
+
     return res.render("user_profile", {
       title: "User Profile",
       profile_user: user,
+      isFollower: isFollower,
     });
-  });
+  } catch (err) {
+    console.log("Error occured in profile controller!");
+    return;
+  }
 };
+
 module.exports.update = async function (req, res) {
   if (req.user.id == req.params.id) {
     try {
@@ -175,4 +184,44 @@ module.exports.updatePassword = function (req, res) {
       }
     }
   );
+};
+
+module.exports.follow = async function (req, res) {
+  try {
+    let toUser = await User.findById(req.params.id);
+    let fromUser = await User.findById(req.user._id);
+    let index = toUser.followers.indexOf(fromUser._id);
+    if (index != -1) {
+      return res.redirect("back");
+    } else {
+      toUser.followers.push(fromUser);
+      fromUser.following.push(toUser);
+      console.log(toUser);
+      console.log(fromUser);
+      toUser.save();
+      fromUser.save();
+      return res.redirect("back");
+    }
+  } catch {
+    console.log("Error in follow controller!");
+  }
+};
+
+module.exports.unfollow = async function (req, res) {
+  try {
+    let toUser = await User.findById(req.params.id);
+    let fromUser = await User.findById(req.user._id);
+    let index1 = toUser.followers.indexOf(fromUser._id);
+    let index2 = fromUser.following.indexOf(toUser._id);
+    if (index1 == -1 || index2 == -1) {
+      return res.redirect("back");
+    }
+    toUser.followers.splice(index1, 1);
+    fromUser.following.splice(index2, 1);
+    toUser.save();
+    fromUser.save();
+    return res.redirect("back");
+  } catch {
+    console.log("Error in unfollow controller!");
+  }
 };
